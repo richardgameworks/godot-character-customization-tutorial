@@ -11,8 +11,11 @@ var _sprites: Array[AnimatedSprite2D]
 
 func _ready() -> void:
 	_sprites = [_body_sprite, _armor_sprite, _head_sprite, _eyes_sprite, _hair_sprite, _weapon_sprite]
-	_play_animation("idle_down")
+	_play_animation("run_down")
 	
 func _play_animation(animation: String) -> void:
 	for sprite in _sprites:
 		sprite.play(animation)
+
+func change_hair_color(hair_color: Color) -> void:
+	_hair_sprite.modulate = hair_color

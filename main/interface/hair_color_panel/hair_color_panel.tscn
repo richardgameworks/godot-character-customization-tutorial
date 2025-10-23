@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhdid76c66xmi"]
+
+[ext_resource type="StyleBox" uid="uid://mw8dmdnlb4k5" path="res://assets/styles/panel_style.tres" id="1_hpfwa"]
+[ext_resource type="Script" uid="uid://b6wodlbfofxfc" path="res://main/interface/hair_color_panel/hair_color_panel.gd" id="2_t8xqm"]
+
+[node name="HairColorPanel" type="PanelContainer" node_paths=PackedStringArray("_color_picker")]
+offset_right = 328.0
+offset_bottom = 334.0
+theme_override_styles/panel = ExtResource("1_hpfwa")
+script = ExtResource("2_t8xqm")
+_color_picker = NodePath("VBoxContainer/ColorPicker")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Hair Color"
+horizontal_alignment = 1
+
+[node name="ColorPicker" type="ColorPicker" parent="VBoxContainer"]
+layout_mode = 2
+edit_alpha = false
+edit_intensity = false
+sampler_visible = false
+color_modes_visible = false
+sliders_visible = false
+hex_visible = false
+presets_visible = false

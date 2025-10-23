@@ -1,7 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6unjupa4inrl"]
+[gd_scene load_steps=4 format=3 uid="uid://c6unjupa4inrl"]
 
 [ext_resource type="PackedScene" uid="uid://drglxbqksgct5" path="res://main/player/player.tscn" id="1_53q0u"]
+[ext_resource type="Script" uid="uid://dm8t8wohkxxwa" path="res://main/main.gd" id="1_xwkvk"]
+[ext_resource type="PackedScene" uid="uid://bhdid76c66xmi" path="res://main/interface/hair_color_panel/hair_color_panel.tscn" id="2_pjrb6"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("_player", "_hair_color_panel")]
+script = ExtResource("1_xwkvk")
+_player = NodePath("Player")
+_hair_color_panel = NodePath("Interface/MarginContainer/Control/LeftContainer/HairColorPanel")
 
 [node name="Player" parent="." instance=ExtResource("1_53q0u")]
+
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="Interface"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Control" type="Control" parent="Interface/MarginContainer"]
+layout_mode = 2
+
+[node name="LeftContainer" type="VBoxContainer" parent="Interface/MarginContainer/Control"]
+custom_minimum_size = Vector2(330, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+
+[node name="HairColorPanel" parent="Interface/MarginContainer/Control/LeftContainer" instance=ExtResource("2_pjrb6")]
+layout_mode = 2
