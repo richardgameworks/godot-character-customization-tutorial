@@ -1,13 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6unjupa4inrl"]
+[gd_scene load_steps=5 format=3 uid="uid://c6unjupa4inrl"]
 
 [ext_resource type="PackedScene" uid="uid://drglxbqksgct5" path="res://main/player/player.tscn" id="1_53q0u"]
 [ext_resource type="Script" uid="uid://dm8t8wohkxxwa" path="res://main/main.gd" id="1_xwkvk"]
 [ext_resource type="PackedScene" uid="uid://bhdid76c66xmi" path="res://main/interface/hair_color_panel/hair_color_panel.tscn" id="2_pjrb6"]
+[ext_resource type="PackedScene" uid="uid://c3ic80nj8p7s4" path="res://main/interface/skin_tone_panel/skin_tone_panel.tscn" id="4_c651c"]
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("_player", "_hair_color_panel")]
+[node name="Main" type="Node2D"]
 script = ExtResource("1_xwkvk")
-_player = NodePath("Player")
-_hair_color_panel = NodePath("Interface/MarginContainer/Control/LeftContainer/HairColorPanel")
 
 [node name="Player" parent="." instance=ExtResource("1_53q0u")]
 
@@ -35,4 +34,7 @@ anchor_bottom = 1.0
 grow_vertical = 2
 
 [node name="HairColorPanel" parent="Interface/MarginContainer/Control/LeftContainer" instance=ExtResource("2_pjrb6")]
+layout_mode = 2
+
+[node name="SkinTonePanel" parent="Interface/MarginContainer/Control/LeftContainer" instance=ExtResource("4_c651c")]
 layout_mode = 2

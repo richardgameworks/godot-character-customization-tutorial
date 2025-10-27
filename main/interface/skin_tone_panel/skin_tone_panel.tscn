@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3ic80nj8p7s4"]
+
+[ext_resource type="StyleBox" uid="uid://mw8dmdnlb4k5" path="res://assets/styles/panel_style.tres" id="1_ujwec"]
+[ext_resource type="Script" uid="uid://byr2f37ui5rul" path="res://main/interface/skin_tone_panel/skin_tone_panel.gd" id="2_18ffo"]
+
+[node name="SkinTonePanel" type="PanelContainer"]
+theme_override_styles/panel = ExtResource("1_ujwec")
+script = ExtResource("2_18ffo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Skin Tone"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 5
