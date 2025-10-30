@@ -10,9 +10,16 @@ class_name Player extends CharacterBody2D
 
 var _sprites: Array[AnimatedSprite2D]
 
+var _speed: float = 100
+var _current_movement: String = "idle"
+var _current_direction: String = "down"
+
 func _ready() -> void:
 	_sprites = [_body_sprite, _armor_sprite, _head_sprite, _eyes_sprite, _hair_sprite, _weapon_sprite]
 	_play_animation("idle_down")
+	
+func _physics_process(_delta: float) -> void:
+	_update_animation()
 	
 func _play_animation(animation: String) -> void:
 	for sprite in _sprites:
@@ -57,4 +64,30 @@ func change_name(new_name: String) -> void:
 	_name_label.text = new_name
 	_name_label.visible = not new_name.is_empty()
 	
+func _update_animation() -> void:
+	var input_vector: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var new_movement: String = _get_movement(input_vector)
+	var new_direction: String = _get_direction(input_vector)
+	var new_animation: String = new_movement + "_" + new_direction
+	var current_animation: String = _current_movement + "_" + _current_direction
 	
+	if new_animation != current_animation:
+		_current_movement = new_movement
+		_current_direction = new_direction
+		
+		_play_animation(new_animation)
+	
+	velocity = input_vector * _speed
+	move_and_slide()
+
+func _get_movement(input_vector: Vector2) -> String:
+	return "run" if input_vector.length() > 0 else "idle"
+
+func _get_direction(input_vector: Vector2) -> String:
+	if input_vector.length() == 0: 
+		return _current_direction
+	
+	if abs(input_vector.x) > abs(input_vector.y):
+		return "right" if input_vector.x > 0 else "left"
+	
+	return "up" if input_vector.y < 0 else "down"

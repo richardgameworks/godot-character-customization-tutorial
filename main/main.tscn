@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6unjupa4inrl"]
+[gd_scene load_steps=9 format=3 uid="uid://c6unjupa4inrl"]
 
 [ext_resource type="PackedScene" uid="uid://drglxbqksgct5" path="res://main/player/player.tscn" id="1_53q0u"]
 [ext_resource type="Script" uid="uid://dm8t8wohkxxwa" path="res://main/main.gd" id="1_xwkvk"]
+[ext_resource type="Texture2D" uid="uid://dsw4ev7fmw6ie" path="res://assets/background.jpg" id="2_4dugh"]
 [ext_resource type="PackedScene" uid="uid://bhdid76c66xmi" path="res://main/interface/hair_color_panel/hair_color_panel.tscn" id="2_pjrb6"]
 [ext_resource type="PackedScene" uid="uid://kpuwtf03flcu" path="res://main/interface/name_panel/name_panel.tscn" id="3_kfbq2"]
 [ext_resource type="PackedScene" uid="uid://c3ic80nj8p7s4" path="res://main/interface/skin_tone_panel/skin_tone_panel.tscn" id="4_c651c"]
@@ -13,6 +14,9 @@ bg_color = Color(0, 0, 0, 1)
 [node name="Main" type="Node2D"]
 script = ExtResource("1_xwkvk")
 
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_4dugh")
+
 [node name="Player" parent="." instance=ExtResource("1_53q0u")]
 
 [node name="Interface" type="CanvasLayer" parent="."]
@@ -23,6 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_behavior_recursive = 1
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
@@ -41,6 +46,7 @@ theme_override_constants/separation = 20
 
 [node name="NamePanel" parent="Interface/MarginContainer/Control/LeftContainer" instance=ExtResource("3_kfbq2")]
 layout_mode = 2
+focus_behavior_recursive = 2
 
 [node name="HairColorPanel" parent="Interface/MarginContainer/Control/LeftContainer" instance=ExtResource("2_pjrb6")]
 layout_mode = 2
