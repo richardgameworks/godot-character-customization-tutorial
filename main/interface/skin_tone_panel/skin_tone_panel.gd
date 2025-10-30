@@ -26,3 +26,7 @@ func _create_buttons() -> void:
 func _on_skin_tone_button_pressed(skin_tone: String) -> void:
 	_current_skin_tone = skin_tone
 	changed.emit(skin_tone)
+
+func pick_random() -> void:
+	_current_skin_tone = Global.SKIN_TONES.keys().pick_random()
+	changed.emit(_current_skin_tone)

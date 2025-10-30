@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6unjupa4inrl"]
+[gd_scene load_steps=8 format=3 uid="uid://c6unjupa4inrl"]
 
 [ext_resource type="PackedScene" uid="uid://drglxbqksgct5" path="res://main/player/player.tscn" id="1_53q0u"]
 [ext_resource type="Script" uid="uid://dm8t8wohkxxwa" path="res://main/main.gd" id="1_xwkvk"]
 [ext_resource type="PackedScene" uid="uid://bhdid76c66xmi" path="res://main/interface/hair_color_panel/hair_color_panel.tscn" id="2_pjrb6"]
+[ext_resource type="PackedScene" uid="uid://kpuwtf03flcu" path="res://main/interface/name_panel/name_panel.tscn" id="3_kfbq2"]
 [ext_resource type="PackedScene" uid="uid://c3ic80nj8p7s4" path="res://main/interface/skin_tone_panel/skin_tone_panel.tscn" id="4_c651c"]
 [ext_resource type="PackedScene" uid="uid://bwd5l5p51dkyj" path="res://main/interface/selection_panel/selection_panel.tscn" id="5_3wy1v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3wy1v"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_xwkvk")
@@ -33,6 +37,10 @@ layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="NamePanel" parent="Interface/MarginContainer/Control/LeftContainer" instance=ExtResource("3_kfbq2")]
+layout_mode = 2
 
 [node name="HairColorPanel" parent="Interface/MarginContainer/Control/LeftContainer" instance=ExtResource("2_pjrb6")]
 layout_mode = 2
@@ -49,3 +57,10 @@ _options = Array[String](["cloth", "leather_armor", "armor"])
 layout_mode = 2
 _label_text = "Weapon"
 _options = Array[String](["stick", "sword", "golden_sword"])
+
+[node name="RandomizeButton" type="Button" parent="Interface/MarginContainer/Control/LeftContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_3wy1v")
+text = "Randomize"

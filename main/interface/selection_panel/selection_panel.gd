@@ -37,3 +37,8 @@ func _select_next() -> void:
 	_current_option = _options[next_index]
 	changed.emit(_current_option)
 	
+func pick_random() -> void:
+	_current_option = _options.pick_random()
+	changed.emit(_current_option)
+	
+	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=3 uid="uid://drglxbqksgct5"]
+[gd_scene load_steps=125 format=3 uid="uid://drglxbqksgct5"]
 
 [ext_resource type="Script" uid="uid://bbai5gdxw0xew" path="res://main/player/player.gd" id="1_8xite"]
 [ext_resource type="Texture2D" uid="uid://c6knrgw63k2f5" path="res://assets/spritesheets/player/_shadow.png" id="1_iy4cy"]
@@ -839,14 +839,15 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("_body_sprite", "_armor_sprite", "_head_sprite", "_eyes_sprite", "_hair_sprite", "_weapon_sprite")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xite"]
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0, 0, 0, 0.39215687)
+
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_8xite")
-_body_sprite = NodePath("Skeleton/Body")
-_armor_sprite = NodePath("Skeleton/Armor")
-_head_sprite = NodePath("Skeleton/Head")
-_eyes_sprite = NodePath("Skeleton/Eyes")
-_hair_sprite = NodePath("Skeleton/Hair")
-_weapon_sprite = NodePath("Skeleton/Weapon")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_67ri8")
@@ -882,3 +883,26 @@ animation = &"idle_down"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(15, 15)
+
+[node name="NameLabelControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -20.0
+offset_bottom = -20.0
+scale = Vector2(0.25, 0.25)
+
+[node name="NameLabel" type="Label" parent="NameLabelControl"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -8.0
+offset_right = 0.5
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_8xite")

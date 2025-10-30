@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://kpuwtf03flcu"]
+
+[ext_resource type="StyleBox" uid="uid://mw8dmdnlb4k5" path="res://assets/styles/panel_style.tres" id="1_kjryp"]
+[ext_resource type="Script" uid="uid://b6u7iksbjs08w" path="res://main/interface/name_panel/name_panel.gd" id="2_qaln5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qaln5"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="NamePanel" type="PanelContainer"]
+theme_override_styles/panel = ExtResource("1_kjryp")
+script = ExtResource("2_qaln5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Name"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.15686275, 0.15686275, 0.15686275, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_qaln5")
+placeholder_text = "Enter Name"
+alignment = 1

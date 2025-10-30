@@ -9,3 +9,9 @@ func _ready() -> void:
 	
 func _on_color_changed(color: Color) -> void:
 	changed.emit(color)
+
+func pick_random() -> void:
+	var random_color: Color = Color(randf(), randf(), randf())
+	
+	_color_picker.color = random_color
+	changed.emit(random_color)

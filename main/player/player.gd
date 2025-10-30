@@ -6,6 +6,7 @@ class_name Player extends CharacterBody2D
 @onready var _eyes_sprite: AnimatedSprite2D = $Skeleton/Eyes
 @onready var _hair_sprite: AnimatedSprite2D = $Skeleton/Hair
 @onready var _weapon_sprite: AnimatedSprite2D = $Skeleton/Weapon
+@onready var _name_label: Label = $NameLabelControl/NameLabel
 
 var _sprites: Array[AnimatedSprite2D]
 
@@ -51,3 +52,9 @@ func _sync_animation(frame: int, animation: String) -> void:
 	for sprite in _sprites:
 		sprite.frame = frame
 		sprite.play(animation)
+
+func change_name(new_name: String) -> void:
+	_name_label.text = new_name
+	_name_label.visible = not new_name.is_empty()
+	
+	
