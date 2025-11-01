@@ -41,4 +41,11 @@ func pick_random() -> void:
 	_current_option = _options.pick_random()
 	changed.emit(_current_option)
 	
+func get_selected() -> String:
+	return _current_option
+	
+func set_selected(option: String) -> void:
+	_current_option = option
+	changed.emit(option)
+	
 	

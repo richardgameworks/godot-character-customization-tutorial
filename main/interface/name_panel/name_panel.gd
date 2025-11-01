@@ -9,3 +9,10 @@ func _ready() -> void:
 
 func _on_text_changed(new_text: String) -> void:
 	changed.emit(new_text)
+
+func get_input_text() -> String:
+	return _line_edit.text
+	
+func set_input_text(text: String) -> void:
+	_line_edit.text = text
+	changed.emit(text)

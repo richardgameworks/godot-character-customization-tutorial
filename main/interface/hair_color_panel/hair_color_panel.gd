@@ -15,3 +15,10 @@ func pick_random() -> void:
 	
 	_color_picker.color = random_color
 	changed.emit(random_color)
+	
+func get_color() -> Color:
+	return _color_picker.color
+	
+func set_color(color: Color) -> void:
+	_color_picker.color = color
+	changed.emit(color)
